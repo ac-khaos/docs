@@ -1,1 +1,12 @@
-* somthing todo
+#+TITLE: README
+#+TODO: TODO START INPROCESS | DONE CANCEL FAILED
+* tcp <2021-08-31 Tue>
+** 三次握手
+- 第一次握手: 客户端发送syn包，等待服务器确认(SYN_SEND)
+- 第二次握手: 服务器响应，发送syn包(SYN+ACK)
+- 第三次握手: 客户端收到SYN+ACK，并返回服务器
+** 四次挥手
+- 第一次: 客户端通知服务端要断开
+- 第二次: 服务端回应客户端
+- 第三次: 服务端通知客户端要断开
+- 第四次: 客户端回应服务端
