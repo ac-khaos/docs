@@ -24,6 +24,33 @@
 
 ** 既然有socket之类的通讯实现，应用层如http协议的必要性？
 需求不一致，制定通讯上层协议
+* tcp协议栈
+** 11个状态
+连接、关闭等
+*** linux源码状态代码
+#+begin_src c++
+  enum {
+    TCP_ESTABLISHED = 1,
+    TCP_SYN_SENT,
+    TCP_SYN_RECV,
+    TCP_FIN_WAIT1,
+    TCP_FIN_WAIT2,
+    TCP_TIME_WAIT,
+    TCP_CLOSE,
+    TCP_CLOSE_WAIT,
+    TCP_LAST_ACK,
+    TCP_LISTEN,
+    TCP_CLOSING,	/* Now a valid state */
+    TCP_NEW_SYN_RECV,
+    TCP_MAX_STATES	/* Leave at the end! */
+  };
+#+end_src
+** 4个定时器
+- 定时重传
+- 超时重传
+- RTT(往返时延: 第一个发送端有数据发送开始到接收到确认信号经历的时间)
+- 心跳
+** 4个算法
 * 端口 <2021-09-02 Thu>
 http的缺省端口是80，https的缺省端口是443
 通过端口可以找的对应的服务器进程
